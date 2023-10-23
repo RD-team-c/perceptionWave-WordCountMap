@@ -15,7 +15,15 @@ public class WordCountMap {
      * @return a Map (key/value pairs) of all the words mapped to their number of occurrences.
      */
     public Map<String, Integer> returnWordMap(String words){
-
-        return null;
+        Map<String, Integer> wordCounts = new HashMap<>();
+        String[] wordArray = words.split(" ");
+        for (String word : wordArray) {
+            if (wordCounts.containsKey(word)) {
+                wordCounts.put(word, wordCounts.get(word)+1);
+            } else {
+                wordCounts.put(word, 1);
+            }
+        }
+        return wordCounts;
     }
 }
